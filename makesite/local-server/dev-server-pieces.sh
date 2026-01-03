@@ -15,6 +15,7 @@ tmux split-window -d -b -v \
      VITE_DEMOS_BASE=http://localhost:8126 \
      VITE_MEDIALIB_BASE=http://localhost:8127 \
      VITE_LESSON_SPECIMENS_BASE=http://localhost:8128 \
+     VITE_MICROBIT_BASE=http://localhost:8130 \
      VITE_LIVE_RELOAD_WEBSOCKET=yes \
      VITE_VERSION_TAG=local-development-build \
      "$PYTCH_LOCAL_SERVER_DIR"/dev-server-webapp.sh
@@ -42,6 +43,12 @@ tmux split-window -t 4 \
      PYTCH_REPO_BASE="$PYTCH_REPO_BASE" \
      PYTCH_LOCAL_SERVER_DIR="$PYTCH_LOCAL_SERVER_DIR" \
      "$PYTCH_LOCAL_SERVER_DIR"/dev-server-static-blobs.sh
+
+tmux split-window -t 1 \
+     env \
+     PYTCH_REPO_BASE="$PYTCH_REPO_BASE" \
+     PYTCH_LOCAL_SERVER_DIR="$PYTCH_LOCAL_SERVER_DIR" \
+     "$PYTCH_LOCAL_SERVER_DIR"/dev-server-microbit.sh
 
 exec \
      env \
